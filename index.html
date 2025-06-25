@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhrone Predicts - Professional Sports Predictions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>Dhrone Predicts</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="predictions.html">Predictions</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <div class="auth-buttons">
+                    <a href="login.html" class="login-btn">Login</a>
+                    <a href="signup.html" class="signup-btn">Sign Up</a>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Dhrone Predicts</h1>
+            <p>Your trusted source for professional sports predictions</p>
+            <div class="hero-buttons">
+                <a href="predictions.html" class="cta-button primary">View Predictions</a>
+                <a href="about.html" class="cta-button secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Date Display Section -->
+    <section class="date-display">
+        <div class="date-container">
+            <i class="far fa-calendar-alt"></i>
+            <span id="current-date"></span>
+        </div>
+    </section>
+
+    <!-- Free Predictions Section -->
+    <section id="free-predictions" class="predictions-section">
+        <h2>Today's Free Tips</h2>
+        <div class="predictions-grid">
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Premier League</span>
+                    <h3>Arsenal vs Chelsea</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 17:30
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Over 1.5 Goals</div>
+                    <div class="odds">Odds: 1.45</div>
+                    <div class="confidence very-high">Confidence: Very High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">La Liga</span>
+                    <h3>Barcelona vs Real Madrid</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 21:00
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Both Teams To Score</div>
+                    <div class="odds">Odds: 1.55</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Serie A</span>
+                    <h3>Inter Milan vs AC Milan</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 20:45
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Over 2.5 Goals</div>
+                    <div class="odds">Odds: 1.75</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Bundesliga</span>
+                    <h3>Bayern Munich vs Dortmund</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 18:30
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Bayern Win</div>
+                    <div class="odds">Odds: 1.65</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Ligue 1</span>
+                    <h3>PSG vs Marseille</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 20:00
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: PSG Win & Over 2.5</div>
+                    <div class="odds">Odds: 1.85</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Eredivisie</span>
+                    <h3>Ajax vs PSV</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 19:45
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Over 2.5 Goals</div>
+                    <div class="odds">Odds: 1.60</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Primeira Liga</span>
+                    <h3>Benfica vs Porto</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 21:15
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Both Teams To Score</div>
+                    <div class="odds">Odds: 1.70</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Super Lig</span>
+                    <h3>Galatasaray vs Fenerbahce</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 18:00
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Over 2.5 Goals</div>
+                    <div class="odds">Odds: 1.75</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Premier League</span>
+                    <h3>Liverpool vs Man City</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 16:30
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Both Teams To Score</div>
+                    <div class="odds">Odds: 1.55</div>
+                    <div class="confidence very-high">Confidence: Very High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Serie A</span>
+                    <h3>Juventus vs Roma</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 20:45
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Under 2.5 Goals</div>
+                    <div class="odds">Odds: 1.65</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">La Liga</span>
+                    <h3>Atletico Madrid vs Sevilla</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 19:00
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Atletico Win</div>
+                    <div class="odds">Odds: 1.75</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Bundesliga</span>
+                    <h3>RB Leipzig vs Leverkusen</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 17:30
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Over 2.5 Goals</div>
+                    <div class="odds">Odds: 1.70</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Premier League</span>
+                    <h3>Man United vs Arsenal</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 15:00
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Both Teams To Score</div>
+                    <div class="odds">Odds: 1.60</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">Serie A</span>
+                    <h3>Napoli vs Lazio</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 20:45
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Napoli Win</div>
+                    <div class="odds">Odds: 1.85</div>
+                    <div class="confidence high">Confidence: High</div>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="match-info">
+                    <span class="league">La Liga</span>
+                    <h3>Villarreal vs Real Sociedad</h3>
+                    <div class="time">
+                        <i class="far fa-clock"></i>
+                        Today, 21:00
+                    </div>
+                </div>
+                <div class="prediction-info">
+                    <div class="prediction">Prediction: Over 1.5 Goals</div>
+                    <div class="odds">Odds: 1.45</div>
+                    <div class="confidence very-high">Confidence: Very High</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Dhrone Predicts</h3>
+                <p>Professional Sports Predictions</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="predictions.html">Predictions</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/18AAtAbpRH/?mibextid=wwXlfr"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/toosweetdhrone"><i class="fab fa-X"></i></a>
+                    <a href="https://www.instagram.com/toosweetdhrone"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@dhronemadridista"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://t.me/+9jT8j9Z_xQZkM2U0"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dhrone Predicts. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Function to update the date display
+        function updateDate() {
+            const dateElement = document.getElementById('current-date');
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const currentDate = new Date().toLocaleDateString('en-US', options);
+            dateElement.textContent = currentDate;
+        }
+
+        // Update date when page loads
+        document.addEventListener('DOMContentLoaded', updateDate);
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+        function closeNav() {
+            navLinks.classList.remove('open');
+        }
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        // Optional: close nav on link click (mobile UX)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeNav);
+        });
+    </script>
+
+    <style>
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-left: 2rem;
+        }
+
+        .login-btn,
+        .signup-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn {
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .login-btn:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        .signup-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        .signup-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</body>
+
+</html>

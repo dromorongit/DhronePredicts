@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dhrone Predicts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>Dhrone Predicts</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#predictions">Predictions</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>About Dhrone Predicts</h1>
+            <p>Your Trusted Sports Prediction Partner</p>
+        </div>
+    </section>
+
+    <!-- Main About Content -->
+    <section class="about-main">
+        <div class="about-container">
+            <div class="about-section">
+                <h2>Our Story</h2>
+                <p>Dhrone Predicts was founded with a simple mission: to provide sports enthusiasts with accurate,
+                    reliable, and timely predictions across various sports. Our team of expert analysts combines years
+                    of experience with advanced statistical models to deliver predictions you can trust.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Approach</h2>
+                <div class="approach-grid">
+                    <div class="approach-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Data-Driven Analysis</h3>
+                        <p>We use advanced statistical models and historical data to make informed predictions.</p>
+                    </div>
+                    <div class="approach-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Real-Time Updates</h3>
+                        <p>Our predictions are constantly updated to reflect the latest information and developments.
+                        </p>
+                    </div>
+                    <div class="approach-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Quality Assurance</h3>
+                        <p>Every prediction undergoes rigorous verification before being published.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>Why Choose Us</h2>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Expert analysis from experienced sports professionals</li>
+                    <li><i class="fas fa-check"></i> Comprehensive coverage of multiple sports and leagues</li>
+                    <li><i class="fas fa-check"></i> Regular updates and real-time predictions</li>
+                    <li><i class="fas fa-check"></i> Transparent and honest approach to predictions</li>
+                    <li><i class="fas fa-check"></i> Dedicated support for all your queries</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Dhrone Predicts</h3>
+                <p>Professional Sports Predictions</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="index.html#predictions">Predictions</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/18AAtAbpRH/?mibextid=wwXlfr"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/toosweetdhrone"><i class="fab fa-X"></i></a>
+                    <a href="https://www.instagram.com/toosweetdhrone"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@dhronemadridista"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://t.me/+9jT8j9Z_xQZkM2U0"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dhrone Predicts. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+        function closeNav() {
+            navLinks.classList.remove('open');
+        }
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        // Optional: close nav on link click (mobile UX)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeNav);
+        });
+    </script>
+</body>
+
+</html>

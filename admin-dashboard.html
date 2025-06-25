@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Dhrone Predicts</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #messages {
+            margin-top: 20px;
+        }
+
+        form {
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <main>
+        <h2>Contact Messages</h2>
+        <div id="messages"></div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/admin-login.html';
+        } else {
+            fetch('/api/contact', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const messagesDiv = document.getElementById('messages');
+                    data.forEach(message => {
+                        const messageElement = document.createElement('div');
+                        messageElement.innerHTML = `
+                            <strong>Name:</strong> ${message.name}<br>
+                            <strong>Email:</strong> ${message.email}<br>
+                            <strong>Subject:</strong> ${message.subject}<br>
+                            <strong>Message:</strong> ${message.message}<br>
+                            <form id="responseForm-${message._id}">
+                                <input type="text" name="response" placeholder="Your Response" required>
+                                <button type="submit">Send Response</button>
+                            </form>
+                            <hr>
+                        `;
+                        messagesDiv.appendChild(messageElement);
+
+                        document.getElementById(`responseForm-${message._id}`).addEventListener('submit', async (event) => {
+                            event.preventDefault();
+                            const response = event.target.response.value;
+                            const responseData = await fetch(`/api/contact/${message._id}/respond`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${token}`
+                                },
+                                body: JSON.stringify({ response })
+                            });
+                            if (responseData.ok) {
+                                alert('Response sent successfully!');
+                            } else {
+                                alert('Failed to send response.');
+                            }
+                        });
+                    });
+                });
+        }
+    </script>
+</body>
+
+</html>

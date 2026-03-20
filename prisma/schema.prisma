@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Sport {
+  FOOTBALL
+  BASKETBALL
+  TENNIS
+}
+
+enum MarketType {
+  FREE_BETS
+  BANKERS
+  FREE_2_ODDS
+  SUPER_SINGLE
+  OVER_1_5
+  OVER_2_5
+  BTTS_GG
+  OVER_3_5
+  DOUBLE_CHANCE
+  CORNERS
+  CORRECT_SCORES
+  DRAWS
+}
+
+enum ConfidenceLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum PredictionStatus {
+  PENDING
+  WON
+  LOST
+  VOID
+  CANCELLED
+}
+
+enum SubscriptionTier {
+  DAILY
+  MONTHLY
+  YEARLY
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+model User {
+  id               String        @id @default(cuid())
+  email            String        @unique
+  name             String?
+  password         String
+  role             Role          @default(USER)
+  avatar           String?
+  phone            String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  subscription     Subscription?
+  payments         Payment[]
+}
+
+model Prediction {
+  id               String           @id @default(cuid())
+  sport            Sport            @default(FOOTBALL)
+  league           String
+  homeTeam         String
+  awayTeam         String
+  prediction       String
+  odds             Float
+  confidence       ConfidenceLevel  @default(MEDIUM)
+  matchTime        DateTime
+  status           PredictionStatus @default(PENDING)
+  marketType       MarketType       @default(FREE_BETS)
+  isVvip           Boolean          @default(false)
+  result           String?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+}
+
+model Subscription {
+  id            String           @id @default(cuid())
+  userId        String           @unique
+  user          User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tier          SubscriptionTier
+  startDate     DateTime         @default(now())
+  endDate       DateTime
+  isActive      Boolean          @default(true)
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+}
+
+model Payment {
+  id              String         @id @default(cuid())
+  userId          String
+  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount          Float
+  currency        String         @default("GHS")
+  tier            SubscriptionTier
+  reference       String         @unique
+  status          PaymentStatus  @default(PENDING)
+  transactionId   String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model SiteSettings {
+  id           String   @id @default(cuid())
+  isLocked     Boolean  @default(false)
+  lockMessage  String?
+  unlockDate   DateTime?
+  updatedAt    DateTime @updatedAt
+}

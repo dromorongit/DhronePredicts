@@ -16,7 +16,7 @@ export default function RegisterPage() {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setError('')
 
@@ -84,7 +84,7 @@ export default function RegisterPage() {
                 <input
                   type="text"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                   placeholder="Enter your name"
                   required
                   className="w-full pl-12 pr-4 py-3 bg-surfaceLight border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"
@@ -99,7 +99,7 @@ export default function RegisterPage() {
                 <input
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
                   className="w-full pl-12 pr-4 py-3 bg-surfaceLight border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"
@@ -114,7 +114,7 @@ export default function RegisterPage() {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                   placeholder="Create a password"
                   required
                   className="w-full pl-12 pr-12 py-3 bg-surfaceLight border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"
@@ -136,7 +136,7 @@ export default function RegisterPage() {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
                   placeholder="Confirm your password"
                   required
                   className="w-full pl-12 pr-4 py-3 bg-surfaceLight border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"

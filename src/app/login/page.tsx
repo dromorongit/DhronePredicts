@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, ChangeEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
@@ -15,13 +15,14 @@ export default function LoginPage() {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault()
     setError('')
     setIsLoading(true)
 
     try {
-      const result = await signIn('credentials', {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const result: any = await signIn('credentials', {
         email,
         password,
         redirect: false,
@@ -70,7 +71,7 @@ export default function LoginPage() {
                 <input
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
                   className="w-full pl-12 pr-4 py-3 bg-surfaceLight border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"
@@ -85,7 +86,7 @@ export default function LoginPage() {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   required
                   className="w-full pl-12 pr-12 py-3 bg-surfaceLight border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"

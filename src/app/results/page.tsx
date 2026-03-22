@@ -144,7 +144,7 @@ export default function ResultsPage() {
                 type="text"
                 placeholder="Search teams or leagues..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 bg-surface border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"
               />
             </div>

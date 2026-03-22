@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Filter, Search, ChevronDown } from 'lucide-react'
+import { Search, Filter, Calendar } from 'lucide-react'
 import { PredictionCard } from '@/components/prediction-card'
 import { MARKET_TYPES, SPORTS, type MarketType, type Sport } from '@/types'
 import { cn } from '@/lib/utils'
@@ -105,16 +105,16 @@ export default function PredictionsPage() {
   })
 
   return (
-    <div className="min-h-screen py-8">
+    <div className="min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-10">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">Predictions</h1>
-          <p className="text-textMuted">Browse our expert predictions across all sports</p>
+          <p className="text-textMuted">Expert predictions across all major leagues</p>
         </div>
 
-        {/* Filters */}
-        <div className="mb-8 space-y-4">
+        {/* Filters Section */}
+        <div className="mb-8 space-y-5">
           {/* Search & Filter Toggle */}
           <div className="flex items-center gap-4">
             <div className="flex-1 relative">
@@ -124,36 +124,38 @@ export default function PredictionsPage() {
                 placeholder="Search teams or leagues..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-surface border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"
+                className="input-field pl-12"
               />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
               className={cn(
-                'px-4 py-3 rounded-xl border transition-colors flex items-center gap-2',
-                showFilters ? 'bg-primary/10 border-primary text-primary' : 'border-white/10 text-textMuted hover:text-text'
+                'px-4 py-3 rounded-xl border transition-all duration-200 flex items-center gap-2',
+                showFilters 
+                  ? 'bg-primary/10 border-primary text-primary' 
+                  : 'border-border text-textMuted hover:text-text hover:border-textMuted'
               )}
             >
               <Filter className="w-5 h-5" />
-              <span className="hidden sm:inline">Filters</span>
+              <span className="hidden sm:inline text-sm font-medium">Filters</span>
             </button>
           </div>
 
-          {/* Filter Options */}
+          {/* Expanded Filters */}
           {showFilters && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-surface rounded-xl border border-white/5"
+              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 bg-surface rounded-xl border border-border"
             >
               {/* Sport Filter */}
               <div>
-                <label className="block text-sm text-textMuted mb-2">Sport</label>
+                <label className="block text-xs font-medium text-textMuted mb-2 uppercase tracking-wide">Sport</label>
                 <select
                   value={selectedSport}
                   onChange={(e) => setSelectedSport(e.target.value as Sport | 'ALL')}
-                  className="w-full px-4 py-2 bg-surfaceLight border border-white/5 rounded-lg text-text focus:outline-none focus:border-primary/50"
+                  className="w-full px-4 py-2.5 bg-surfaceLight border border-border rounded-lg text-text focus:outline-none focus:border-primary/50"
                 >
                   <option value="ALL">All Sports</option>
                   {SPORTS.map((sport) => (
@@ -166,11 +168,11 @@ export default function PredictionsPage() {
 
               {/* Market Type Filter */}
               <div>
-                <label className="block text-sm text-textMuted mb-2">Market Type</label>
+                <label className="block text-xs font-medium text-textMuted mb-2 uppercase tracking-wide">Market Type</label>
                 <select
                   value={selectedMarket}
                   onChange={(e) => setSelectedMarket(e.target.value as MarketType | 'ALL')}
-                  className="w-full px-4 py-2 bg-surfaceLight border border-white/5 rounded-lg text-text focus:outline-none focus:border-primary/50"
+                  className="w-full px-4 py-2.5 bg-surfaceLight border border-border rounded-lg text-text focus:outline-none focus:border-primary/50"
                 >
                   <option value="ALL">All Markets</option>
                   {MARKET_TYPES.map((market) => (
@@ -183,43 +185,45 @@ export default function PredictionsPage() {
             </motion.div>
           )}
 
-          {/* Market Type Pills */}
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSelectedMarket('ALL')}
-              className={cn(
-                'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
-                selectedMarket === 'ALL'
-                  ? 'bg-primary text-black'
-                  : 'bg-surface text-textMuted hover:text-text'
-              )}
-            >
-              All
-            </button>
-            {MARKET_TYPES.slice(0, 6).map((market) => (
+          {/* Market Type Tabs - Horizontal Scroll on Mobile */}
+          <div className="overflow-x-auto scrollbar-hide -mx-4 px-4">
+            <div className="flex gap-2 min-w-max pb-1">
               <button
-                key={market.value}
-                onClick={() => setSelectedMarket(market.value)}
+                onClick={() => setSelectedMarket('ALL')}
                 className={cn(
-                  'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
-                  selectedMarket === market.value
+                  'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap',
+                  selectedMarket === 'ALL'
                     ? 'bg-primary text-black'
-                    : 'bg-surface text-textMuted hover:text-text'
+                    : 'bg-surface text-textMuted hover:text-text border border-border hover:border-textMuted'
                 )}
               >
-                {market.label}
+                All Markets
               </button>
-            ))}
+              {MARKET_TYPES.slice(0, 8).map((market) => (
+                <button
+                  key={market.value}
+                  onClick={() => setSelectedMarket(market.value)}
+                  className={cn(
+                    'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap',
+                    selectedMarket === market.value
+                      ? 'bg-primary text-black'
+                      : 'bg-surface text-textMuted hover:text-text border border-border hover:border-textMuted'
+                  )}
+                >
+                  {market.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Results Count */}
-        <div className="mb-6 text-textMuted">
-          Showing {filteredPredictions.length} predictions
+        <div className="mb-6 text-sm text-textMuted">
+          Showing <span className="text-text font-medium">{filteredPredictions.length}</span> predictions
         </div>
 
         {/* Predictions Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredPredictions.map((prediction, index) => (
             <motion.div
               key={prediction.id}
@@ -234,6 +238,7 @@ export default function PredictionsPage() {
 
         {filteredPredictions.length === 0 && (
           <div className="text-center py-20">
+            <Calendar className="w-12 h-12 mx-auto mb-4 text-textMuted" />
             <p className="text-textMuted text-lg">No predictions found matching your criteria</p>
           </div>
         )}

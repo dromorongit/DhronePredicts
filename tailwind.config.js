@@ -9,17 +9,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#00ff87',
-        background: '#0b0f1a',
+        primary: '#00FF87',
+        secondary: '#1F6FEB',
+        background: '#0B0F1A',
         surface: '#121826',
-        surfaceLight: '#1a2234',
-        text: '#e6edf3',
-        textMuted: '#8b949e',
-        accent: '#1f6feb',
+        surfaceLight: '#1E293B',
+        border: '#1E293B',
+        text: '#E6EDF3',
+        textMuted: '#8B949E',
+        accent: '#1F6FEB',
         success: '#22c55e',
         error: '#ef4444',
         warning: '#f59e0b',
         vvip: '#ffd700',
+        win: '#00C853',
+        loss: '#FF5252',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

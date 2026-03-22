@@ -29,74 +29,74 @@ export function formatDateTime(date: Date | string): string {
 export function getStatusColor(status: string): string {
   switch (status) {
     case 'WON':
-      return 'text-green-400'
+      return 'text-win'
     case 'LOST':
-      return 'text-red-400'
+      return 'text-loss'
     case 'PENDING':
-      return 'text-yellow-400'
+      return 'text-warning'
     case 'VOID':
     case 'CANCELLED':
-      return 'text-gray-400'
+      return 'text-textMuted'
     default:
-      return 'text-gray-400'
+      return 'text-textMuted'
   }
 }
 
 export function getStatusBgColor(status: string): string {
   switch (status) {
     case 'WON':
-      return 'bg-green-500/20'
+      return 'bg-win/15'
     case 'LOST':
-      return 'bg-red-500/20'
+      return 'bg-loss/15'
     case 'PENDING':
-      return 'bg-yellow-500/20'
+      return 'bg-warning/15'
     case 'VOID':
     case 'CANCELLED':
-      return 'bg-gray-500/20'
+      return 'bg-surfaceLight'
     default:
-      return 'bg-gray-500/20'
+      return 'bg-surfaceLight'
   }
 }
 
 export function getConfidenceColor(confidence: string): string {
   switch (confidence) {
     case 'HIGH':
-      return 'text-green-400'
+      return 'text-win'
     case 'MEDIUM':
-      return 'text-yellow-400'
+      return 'text-warning'
     case 'LOW':
-      return 'text-red-400'
+      return 'text-loss'
     default:
-      return 'text-gray-400'
+      return 'text-textMuted'
   }
 }
 
 export function getMarketTypeColor(marketType: string): string {
   switch (marketType) {
     case 'BANKERS':
-      return 'bg-purple-500/20 text-purple-400'
+      return 'bg-purple-500/15 text-purple-400'
     case 'FREE_BETS':
-      return 'bg-blue-500/20 text-blue-400'
+      return 'bg-secondary/15 text-secondary'
     case 'FREE_2_ODDS':
-      return 'bg-cyan-500/20 text-cyan-400'
+      return 'bg-cyan-500/15 text-cyan-400'
     case 'SUPER_SINGLE':
-      return 'bg-orange-500/20 text-orange-400'
+      return 'bg-orange-500/15 text-orange-400'
     case 'OVER_1_5':
     case 'OVER_2_5':
     case 'OVER_3_5':
-      return 'bg-green-500/20 text-green-400'
+      return 'bg-win/15 text-win'
     case 'BTTS_GG':
-      return 'bg-teal-500/20 text-teal-400'
+      return 'bg-teal-500/15 text-teal-400'
     case 'DOUBLE_CHANCE':
-      return 'bg-indigo-500/20 text-indigo-400'
+      return 'bg-indigo-500/15 text-indigo-400'
     case 'CORNERS':
-      return 'bg-pink-500/20 text-pink-400'
+      return 'bg-pink-500/15 text-pink-400'
     case 'CORRECT_SCORES':
-      return 'bg-amber-500/20 text-amber-400'
+      return 'bg-amber-500/15 text-amber-400'
     case 'DRAWS':
-      return 'bg-red-500/20 text-red-400'
+      return 'bg-loss/15 text-loss'
     default:
-      return 'bg-gray-500/20 text-gray-400'
+      return 'bg-surfaceLight text-textMuted'
   }
 }
 

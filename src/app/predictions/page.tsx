@@ -123,7 +123,7 @@ export default function PredictionsPage() {
                 type="text"
                 placeholder="Search teams or leagues..."
                 value={searchQuery}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="input-field pl-12"
               />
             </div>
@@ -154,7 +154,7 @@ export default function PredictionsPage() {
                 <label className="block text-xs font-medium text-textMuted mb-2 uppercase tracking-wide">Sport</label>
                 <select
                   value={selectedSport}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) => setSelectedSport(e.target.value as Sport | 'ALL')}
+                  onChange={(e) => setSelectedSport(e.target.value as Sport | 'ALL')}
                   className="w-full px-4 py-2.5 bg-surfaceLight border border-border rounded-lg text-text focus:outline-none focus:border-primary/50"
                 >
                   <option value="ALL">All Sports</option>
@@ -171,7 +171,7 @@ export default function PredictionsPage() {
                 <label className="block text-xs font-medium text-textMuted mb-2 uppercase tracking-wide">Market Type</label>
                 <select
                   value={selectedMarket}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) => setSelectedMarket(e.target.value as MarketType | 'ALL')}
+                  onChange={(e) => setSelectedMarket(e.target.value as MarketType | 'ALL')}
                   className="w-full px-4 py-2.5 bg-surfaceLight border border-border rounded-lg text-text focus:outline-none focus:border-primary/50"
                 >
                   <option value="ALL">All Markets</option>

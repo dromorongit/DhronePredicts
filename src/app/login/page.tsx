@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, ChangeEvent } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
@@ -71,7 +71,7 @@ export default function LoginPage() {
                 <input
                   type="email"
                   value={email}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
                   className="w-full pl-12 pr-4 py-3 bg-surfaceLight border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"
@@ -86,7 +86,7 @@ export default function LoginPage() {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   required
                   className="w-full pl-12 pr-12 py-3 bg-surfaceLight border border-white/5 rounded-xl text-text placeholder:text-textMuted focus:outline-none focus:border-primary/50 transition-colors"
